@@ -158,7 +158,7 @@ public class TestResults : EditorWindow {
         previousScene = EditorApplication.currentScene;
         EditorApplication.SaveScene();
 
-        EditorApplication.OpenScene("Assets/Scenes/packages/invisibledrygoods/BDD/TestRunner.unity");
+        EditorApplication.OpenScene("Assets/Scenes/packages/invisibledrygoods/GivenWhenUnity/TestRunner.unity");
         if (EditorApplication.currentScene == previousScene)
         {
             EditorApplication.OpenScene("Assets/Scenes/TestRunner.unity");
