@@ -32,7 +32,7 @@ public class RunsTests : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TestBehaviour[] fixtures = GameObject.FindSceneObjectsOfType(typeof(TestBehaviour)) as TestBehaviour[];
+        TestBehaviour[] fixtures = GameObject.FindObjectsOfType(typeof(TestBehaviour)) as TestBehaviour[];
 
         foreach (TestBehaviour test in fixtures)
         {
