@@ -177,8 +177,9 @@ public abstract class TestBehaviour : MonoBehaviour {
         catch (Exception e)
         {
             Exception error = e.InnerException ?? e;
+            string stackFrame = error.StackTrace.Split('\n')[0];
             string message = Regex.Replace(error.Message.Replace('\n', ' '), @"\s+", " ").Trim();
-            steps.Add(new Step(Step.red, prefix + " " + step + " (" + message + ")"));
+            steps.Add(new Step(Step.red, prefix + " " + step + " (" + error.GetType().Name + ": " + message + ")" + stackFrame));
             failed = true;
         }
     }
