@@ -137,7 +137,7 @@ public abstract class TestBehaviour : MonoBehaviour {
             string value = match.Value.Trim();
             if (value.StartsWith("'"))
             {
-                args.Add(value.Trim("'".ToCharArray()));
+                args.Add(Regex.Replace(value.Trim("'".ToCharArray()), "  ", " "));
             }
             else if (value.Contains("."))
             {
