@@ -100,5 +100,5 @@ __.Because()__
 
     Given("I write a test")
         .When("it is displayed")
-        .Then("it should tell me why I bothered to write it")
+        .Then("it should tell me why I bothered to write the test")
         .Because("it is not always clear after a few beers");
