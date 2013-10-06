@@ -98,7 +98,7 @@ In Progress
 
 __.Because()__
 
-    Given("i write a test")
+    Given("I write a test")
         .When("it is displayed")
-        .Then("it should tell me why i even bothered to write that test")
-        .Because("it's not always clear after a few beers");
+        .Then("it should tell me why I bothered to write it")
+        .Because("it is not always clear after a few beers");
