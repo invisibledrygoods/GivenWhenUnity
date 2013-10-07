@@ -4,7 +4,7 @@ GivenWhenUnity
 Behavior driven development tool for Unity3D
 
 Real Life Example
-=================
+-----------------
 
     using UnityEngine;
     using System.Collections;
