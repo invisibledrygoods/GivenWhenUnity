@@ -59,18 +59,36 @@ public abstract class TestBehaviour : MonoBehaviour {
         return given;
     }
 
+    public void Scenario(string scenario)
+    {
+        steps.type = scenario;
+    }
+
     public void RunAll(string name)
     {
         Spec();
 
+        givens.Reverse();
+
         foreach (Given given in givens)
         {
+            given.when.thens.Reverse();
             foreach (Then then in given.when.thens)
             {
                 TestBehaviour fixture = new GameObject().AddComponent(name) as TestBehaviour;
                 fixture.transform.position = GetRandomIsolatedLocation();
 
-                fixture.steps.Add(new Step(Color.black, "if it " + (name.EndsWith("Test") ? name.Remove(name.Length - 4) : name) + ":"));
+                fixture.steps.reason = then.when.reason;
+
+                if (steps.type == null)
+                {
+                    fixture.steps.type = name.EndsWith("Test") ? name.Remove(name.Length - 4) : name;
+                    fixture.steps.type = Regex.Replace(fixture.steps.type, "[A-Z]", " $0").Trim();
+                }
+                else
+                {
+                    fixture.steps.type = steps.type;
+                }
 
                 string prefix = "given";
                 foreach (string step in given.steps)
@@ -177,9 +195,7 @@ public abstract class TestBehaviour : MonoBehaviour {
         catch (Exception e)
         {
             Exception error = e.InnerException ?? e;
-            string stackFrame = error.StackTrace.Split('\n')[0];
-            string message = Regex.Replace(error.Message.Replace('\n', ' '), @"\s+", " ").Trim();
-            steps.Add(new Step(Step.red, prefix + " " + step + " (" + error.GetType().Name + ": " + message + ")" + stackFrame));
+            steps.Add(new Step(Step.red, prefix + " " + step + "\n" + error.ToString()));
             failed = true;
         }
     }

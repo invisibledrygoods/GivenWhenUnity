@@ -25,6 +25,9 @@ public class StepList
 {
     public List<Step> steps = new List<Step>();
     public Color severity;
+    public string reason;
+    public string type;
+    public bool expanded;
 
     public StepList()
     {
@@ -43,6 +46,11 @@ public class StepList
         else if (step.status == Step.yellow)
         {
             this.severity = Step.yellow;
+        }
+
+        if (severity != Step.green)
+        {
+            this.expanded = true;
         }
     }
 }

@@ -30,4 +30,10 @@ public class Then
     {
         return when.ThenWithin(duration, step);
     }
+
+    public Then Because(string reason)
+    {
+        when.reason = reason;
+        return this;
+    }
 }

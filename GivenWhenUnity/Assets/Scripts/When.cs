@@ -5,12 +5,14 @@ public class When
 {
     public List<string> steps;
     public List<Then> thens;
+    public string reason;
 
     public When(string step)
     {
         steps = new List<string>();
         thens = new List<Then>();
         steps.Add(step);
+        reason = "it should do something unjustifiable";
     }
 
     public When And(string step)

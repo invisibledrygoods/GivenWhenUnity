@@ -68,12 +68,22 @@ public class TestResults : EditorWindow {
                     || test.severity == Step.yellow && showYellow
                     || test.severity == Step.green && showGreen)
                 {
+                    Color oldColor = GUI.color;
+                    GUI.color = test.severity;
                     EditorGUILayout.BeginHorizontal();
-                    foreach (Step step in test.steps)
-                    {
-                        DrawStep(step.status, step.step);
-                    }
+                    test.expanded = EditorGUILayout.Foldout(test.expanded, "if it " + test.type + ",");
+                    EditorGUILayout.LabelField("", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent(test.type + " : ")).x - 30));
+                    EditorGUILayout.LabelField(test.reason, EditorStyles.whiteLabel, GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent(test.reason)).x));
+                    GUILayout.FlexibleSpace();
                     EditorGUILayout.EndHorizontal();
+                    if (test.expanded)
+                    {
+                        foreach (Step step in test.steps)
+                        {
+                            DrawStep(step.status, step.step);
+                        }
+                    }
+                    GUI.color = oldColor;
                 }
             }
         }
@@ -104,7 +114,14 @@ public class TestResults : EditorWindow {
     {
         Color oldColor = GUI.color;
         GUI.color = color;
-        EditorGUILayout.SelectableLabel(step, EditorStyles.whiteLabel, GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent(step)).x), GUILayout.Height(14));
+        foreach (string line in step.Split('\n'))
+        {
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("", GUILayout.Width(30));
+            EditorGUILayout.SelectableLabel(line, EditorStyles.whiteLabel, GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent(step)).x), GUILayout.Height(14));
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
+        }
         GUI.color = oldColor;
     }
 
