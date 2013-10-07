@@ -22,19 +22,22 @@ Real Life Example
             Given("it deals 3 'damage' in collisions")
                 .And("a butthead with 5 hp is nearby")
                 .When("it collides with the butthead")
-                .ThenWithin("3 frames", "the butthead should have 2 hp");
+                .ThenWithin("3 frames", "the butthead should have 2 hp")
+                .Because("it should follow basic expected behaviour");
     
             Given("it deals 1 'damage' in collisions")
                 .And("it is destroyed after dealing")
                 .And("a butthead with 5 hp is nearby")
                 .When("it collides with the butthead")
-                .ThenWithin("3 frames", "it should be destroyed");
+                .ThenWithin("3 frames", "it should be destroyed")
+                .Because("it should be destroyed after dealing when destroyAfterDealing is true");
     
             Given("it deals 1 'damage' in collisions")
                 .And("it is deactivated after dealing")
                 .And("a butthead with 5 hp is nearby")
                 .When("it collides with the butthead")
-                .ThenWithin("3 frames", "it should be deactivated");
+                .ThenWithin("3 frames", "it should be deactivated")
+                .Because("it should be deactivated after dealing if deactivateAfterDealing is true");
         }
     
         public void ItDeals____InCollisions(float amount, string source)
@@ -92,13 +95,3 @@ Real Life Example
             it.gameObject.activeSelf.ShouldBe(false);
         }
     }
-
-In Progress
-===========
-
-__.Because()__
-
-    Given("I write a test")
-        .When("it is displayed")
-        .Then("it should tell me why I bothered to write the test")
-        .Because("it is not always clear after a few beers");
