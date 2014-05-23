@@ -32,7 +32,7 @@ And I should probably tear down the most common misconception while I'm still on
 How It Works
 ------------
 
-Making a class that extends TestBehaviour is enough to run the test, clicking run or finishing compile with "run after compile" checked will build a test scene and use reflection to execute every TestBehaviour in the codebase.
+Making a class that extends TestBehaviour is enough to run the test, clicking run or finishing compile with "run after compile" checked will build a test scene and use reflection to execute every `TestBehaviour` in the codebase.
 
 All test descriptions go inside of a `public override void Spec()` method, and are specified in a Given/When/Then format similar to [cucumber](http://cukes.info/).
 
@@ -40,7 +40,7 @@ To write the code behind a specification, make a `public void` method by snake-c
 
 Test output will be color coded yellow if the test method does not exist or a prior test failed, red if the test threw an error, and green if the test passed.
 
-The `Because()` specification is only used by output but every test should be backed by a feature and every feature needs a reason to exist so fill that in here.
+The `Because` specification is only used by output but every test should be backed by a feature and every feature needs a reason to exist so fill that in here.
 
 Real Life Example
 -----------------
