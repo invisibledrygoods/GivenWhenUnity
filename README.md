@@ -36,7 +36,7 @@ Making a class that extends TestBehaviour is enough to run the test, clicking ru
 
 All test descriptions go inside of a `public override void Spec()` method, and are specified in a Given/When/Then format similar to [cucumber](http://cukes.info/).
 
-To write the code behind a specification, make a `public void` method by snake-casing the specification string. Numbers and single quoted strings in the specification need to be replaced by two underscores in the method name and supplied as arguments to the method in their original order.
+To write the code behind a specification, make a `public void` method by SnakeCasing the specification string. Numbers and single quoted strings in the specification need to be replaced by two underscores in the method name and supplied as arguments to the method in their original order.
 
 Test output will be color coded yellow if the test method does not exist or a prior test failed, red if the test threw an error, and green if the test passed.
 
