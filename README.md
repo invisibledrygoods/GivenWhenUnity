@@ -27,7 +27,7 @@ I had a whole thing about the philosophy of test driven development here, [but l
       .AndWithin("20 seconds", "the units to the south should all make it to the north")
       .Because("pathfinding should be able to deal with crowd collision");
 
-And I should probably tear down the most common misconception while I'm still on my soapbox: your tests aren't a safety net, they're a self-verifying design document. Write them with your game designer, or even better, let your designer write them herself.
+And I should probably tear down the most common misconception while I'm still on my soapbox: your tests aren't a safety net, they're a self-verifying design document; write them with your game designer, or even better, let your designer write them herself.
 
 How It Works
 ------------
