@@ -1,7 +1,7 @@
 GivenWhenUnity
 ==============
 
-Behavior driven development tool for Unity3D
+A Test Driven Development tool for Unity3D. You can use this if you're sick of manually verifying things, or changing one thing on one side of your code and one month later discovering that something on the other side silently broke.
 
 Why Write Tests
 ---------------
