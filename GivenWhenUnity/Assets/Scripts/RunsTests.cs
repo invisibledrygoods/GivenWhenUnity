@@ -17,7 +17,6 @@ public class RunsTests : MonoBehaviour {
         tests = new List<StepList>();
     }
 
-	// Use this for initialization
     void Start()
     {
         foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
@@ -29,9 +28,8 @@ public class RunsTests : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update () {
         TestBehaviour[] fixtures = GameObject.FindObjectsOfType(typeof(TestBehaviour)) as TestBehaviour[];
 
         foreach (TestBehaviour test in fixtures)
@@ -50,5 +48,5 @@ public class RunsTests : MonoBehaviour {
         }
 
         framesSinceStarted++;
-	}
+    }
 }
