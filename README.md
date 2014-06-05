@@ -62,7 +62,7 @@ Real Life Example
                 .And("a butthead with 5 hp is nearby")
                 .When("it collides with the butthead")
                 .ThenWithin("3 frames", "the butthead should have 2 hp")
-                .Because("it should follow basic expected behaviour");
+                .Because("DealsPointsInCollisions should do what it says on the tin");
     
             Given("it deals 1 'damage' in collisions")
                 .And("it is destroyed after dealing")
