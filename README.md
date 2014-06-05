@@ -149,4 +149,4 @@ In Progress
 
  - Stochastic tests would be nice for probabilistic scenarios. Something like "this test should pass more than 90 out of 100 tries"
 
- - Some way to take screenshots of fail states (maybe write a camera.WithScreenshotOnError(void => void) extension method that works everywhere? Maybe make it its own library actually?)
+ - Some way to take screenshots of fail states (maybe write a camera.WithScreenshotOnError(() => void) extension method that works everywhere? Maybe make it its own library actually?)
