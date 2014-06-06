@@ -32,7 +32,7 @@ And I should probably tear down the most common misconception while I'm still on
 How It Works
 ------------
 
-Making a class that extends TestBehaviour is enough to run the test, clicking run or finishing compile with "run after compile" checked will build a test scene and use reflection to execute every `TestBehaviour` in the codebase.
+Making a class that extends `TestBehaviour` is enough to run the test, clicking run or finishing compile with "run after compile" checked will build a test scene and use reflection to execute every `TestBehaviour` in the codebase.
 
 All test descriptions go inside of a `public override void Spec()` method, and are specified in a Given/When/Then format similar to [cucumber](http://cukes.info/).
 
